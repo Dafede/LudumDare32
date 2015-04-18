@@ -6,6 +6,8 @@ public class CharacterMovement : MonoBehaviour {
     public float Speed = 1.0f;
     public float JumpHeight = 5000.0f;
     public GameObject _slasherObject;
+    public GameObject _redDamageIndicator;
+
     private Animator _animator;
     private Rigidbody2D _rigidBody2D;
 
@@ -14,7 +16,7 @@ public class CharacterMovement : MonoBehaviour {
     private bool isJumping = false;
     private bool isHitting = false;
     private bool isWalkingRight = true;
-    private int actualLives;
+    public int actualLives;
 
 	// Use this for initialization
 	void Start () {
@@ -49,6 +51,7 @@ public class CharacterMovement : MonoBehaviour {
         if (Input.GetAxis("Fire1") == 1)
         {
 			isHitting = true;
+
             _slasherObject.GetComponent<Animator>().SetBool("MakeSlash", true);
             _animator.SetBool("IsHitting", true);
         }
@@ -66,44 +69,27 @@ public class CharacterMovement : MonoBehaviour {
             _animator.SetBool("IsJumping", false);
         }
 
-        if (col.gameObject.tag == "Enemy") {
-			Debug.Log ("Enter!");
-            // Do damage to the enemy
-            if (isHitting == true) {
-                MakeDamage(col);
-            }
-
-            // Damage to ourself
-            if (isHitting == false) {
-                SufferDamage();
-            }
+        if (col.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Hitted!");
+            SufferDamage();
         }
-
-    }
-
-
-    // Make damage to the game object collided with
-    void MakeDamage(Collision2D col) {
-		Debug.Log ("Enter!");
-        col.gameObject.AddComponent<EnemyBehaviour>().Hitted();
     }
 
     // Die logic
     void Die()
     {
-
     }
 
     // Recive damage from any source
     void SufferDamage() {
         actualLives--;
+        _redDamageIndicator.GetComponent<RedDamageBehaviour>().BeginAnimation();
         if (actualLives == 0) {
             Die();
         }
+
     }
-
-   
-
 
     // Change character orientation
     void Flip() {
