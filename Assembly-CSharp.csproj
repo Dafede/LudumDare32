@@ -52,6 +52,8 @@
      <Compile Include="Assets\Scripts\EnemyGeneration.cs" />
      <Compile Include="Assets\Scripts\Nike.cs" />
      <Compile Include="Assets\Scripts\NotificationCenter.cs" />
+     <Compile Include="Assets\Scripts\RedDamageBehaviour.cs" />
+     <Compile Include="Assets\Scripts\WeaponBehaviour.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
