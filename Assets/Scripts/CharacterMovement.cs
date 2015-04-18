@@ -86,7 +86,13 @@ public class CharacterMovement : MonoBehaviour {
         _redDamageIndicator.GetComponent<RedDamageBehaviour>().BeginAnimation();
 
         GameObject[] list = GameObject.FindGameObjectsWithTag("Life");
-        list[list.Length - 1].SetActive(false);
+        GameObject elected = list[0];
+        foreach (GameObject l in list) {
+            if (elected.transform.position.x < l.transform.position.x) {
+                elected = l;
+            }
+        }
+        elected.SetActive(false);
 
 
         if (actualLives == 0) {
