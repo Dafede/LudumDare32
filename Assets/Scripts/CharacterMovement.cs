@@ -84,6 +84,11 @@ public class CharacterMovement : MonoBehaviour {
     void SufferDamage() {
         actualLives--;
         _redDamageIndicator.GetComponent<RedDamageBehaviour>().BeginAnimation();
+
+        GameObject[] list = GameObject.FindGameObjectsWithTag("Life");
+        list[list.Length - 1].SetActive(false);
+
+
         if (actualLives == 0) {
             Die();
         }
