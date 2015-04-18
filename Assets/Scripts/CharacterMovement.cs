@@ -4,10 +4,11 @@ using System.Collections;
 public class CharacterMovement : MonoBehaviour {
 
     public float Speed = 1.0f;
+    private Animator animator;
 
 	// Use this for initialization
 	void Start () {
-	
+        animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame

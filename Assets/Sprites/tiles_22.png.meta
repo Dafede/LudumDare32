@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1942b42449f697b4794af0e4d7ab3983
-timeCreated: 1429359976
+timeCreated: 1429366744
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,13 @@ TextureImporter:
     21300012: tiles_22_6
     21300014: tiles_22_7
     21300016: tiles_22_8
+    21300018: tiles_22_9
+    21300020: tiles_22_10
+    21300022: tiles_22_11
+    21300024: tiles_22_12
+    21300026: tiles_22_13
+    21300028: tiles_22_14
+    21300030: tiles_22_15
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -61,60 +68,60 @@ TextureImporter:
     - name: tiles_22_0
       rect:
         serializedVersion: 2
-        x: 288
-        y: 0
-        width: 96
-        height: 64
+        x: 524
+        y: 56
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: tiles_22_1
       rect:
         serializedVersion: 2
-        x: 392
-        y: 48
-        width: 16
-        height: 12
+        x: 532
+        y: 56
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: tiles_22_2
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 96
-        height: 64
+        x: 540
+        y: 56
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: tiles_22_3
       rect:
         serializedVersion: 2
-        x: 448
-        y: 48
-        width: 16
-        height: 16
+        x: 548
+        y: 56
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: tiles_22_4
       rect:
         serializedVersion: 2
-        x: 464
-        y: 48
-        width: 16
-        height: 16
+        x: 556
+        y: 56
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: tiles_22_5
       rect:
         serializedVersion: 2
-        x: 432
-        y: 48
-        width: 16
-        height: 16
+        x: 564
+        y: 56
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,7 +138,7 @@ TextureImporter:
     - name: tiles_22_7
       rect:
         serializedVersion: 2
-        x: 480
+        x: 464
         y: 48
         width: 16
         height: 16
@@ -141,9 +148,49 @@ TextureImporter:
     - name: tiles_22_8
       rect:
         serializedVersion: 2
+        x: 432
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tiles_22_9
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tiles_22_10
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tiles_22_11
+      rect:
+        serializedVersion: 2
         x: 496
         y: 48
         width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: tiles_22_12
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 48
+        width: 12
         height: 16
       alignment: 0
       pivot: {x: .5, y: .5}
