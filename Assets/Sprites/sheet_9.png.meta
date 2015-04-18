@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fa604a36d13ae1340bc5f1ada8355bd4
-timeCreated: 1429356562
+timeCreated: 1429357897
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -57,16 +57,6 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: sheet_9_0
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 80
-        width: 48
-        height: 16
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
     - name: sheet_9_1
       rect:
         serializedVersion: 2
@@ -131,12 +121,22 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 112
-        y: 80
+        y: 82
         width: 48
-        height: 16
+        height: 14
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 1, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sheet_9_0
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 82
+        width: 44
+        height: 14
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
