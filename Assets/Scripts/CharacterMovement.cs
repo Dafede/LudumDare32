@@ -5,8 +5,10 @@ public class CharacterMovement : MonoBehaviour {
 
     public float Speed = 1.0f;
     public float JumpHeight = 5000.0f;
+    public GameObject _slasherObject;
     private Animator _animator;
     private Rigidbody2D _rigidBody2D;
+
     public int TotalLives = 3;
 
     private bool isJumping = false;
@@ -46,21 +48,26 @@ public class CharacterMovement : MonoBehaviour {
         // Hit
         if (Input.GetAxis("Fire1") == 1)
         {
+			isHitting = true;
+            _slasherObject.GetComponent<Animator>().SetBool("MakeSlash", true);
             _animator.SetBool("IsHitting", true);
         }
         else {
+			isHitting = false;
             _animator.SetBool("IsHitting", false);
+            _slasherObject.GetComponent<Animator>().SetBool("MakeSlash", false);
         }
 	}
 
     void OnCollisionEnter2D(Collision2D col) {
+	
         if (col.gameObject.tag == "Ground") {
             isJumping = false;
             _animator.SetBool("IsJumping", false);
         }
 
         if (col.gameObject.tag == "Enemy") {
-
+			Debug.Log ("Enter!");
             // Do damage to the enemy
             if (isHitting == true) {
                 MakeDamage(col);
@@ -76,8 +83,9 @@ public class CharacterMovement : MonoBehaviour {
 
 
     // Make damage to the game object collided with
-    void MakeDamage(Collision2D col) { 
-    
+    void MakeDamage(Collision2D col) {
+		Debug.Log ("Enter!");
+        col.gameObject.AddComponent<EnemyBehaviour>().Hitted();
     }
 
     // Die logic

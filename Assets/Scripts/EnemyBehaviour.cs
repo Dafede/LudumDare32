@@ -15,19 +15,21 @@ public class EnemyBehaviour : MonoBehaviour {
 	void Start () {
 		//Invoke ("Explosion", 1);
 		player = GameObject.FindGameObjectWithTag("Player");
-		direction1 = transform.position;
-		constantY = direction1.y;
-		direction2 = player.transform.position;
+		//direction1 = transform.position;
+		//constantY = direction1.y;
+		//direction2 = player.transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 		player = GameObject.FindGameObjectWithTag("Player");
 		direction1 = transform.position;
 		direction2 = player.transform.position;
-		direction1.y = constantY;
+		//direction1.y = constantY;
 		float step = Speed * Time.deltaTime;
 		transform.position = Vector3.MoveTowards(direction1, direction2, step);
+
 	}
 	void Explosion(){
 		EnemyPosition = transform.position;
@@ -40,6 +42,11 @@ public class EnemyBehaviour : MonoBehaviour {
 		coinAux = Instantiate (coinPrefab, EnemyPosition, Quaternion.identity) as GameObject;
 		rb = coinAux.GetComponent<Rigidbody2D>();
 		rb.AddForce(new Vector2 (50,500));
+		Destroy (gameObject);
+	}
+
+	public void Hitted(){
+		Debug.Log ("destroy");
 		Destroy (gameObject);
 	}
 }

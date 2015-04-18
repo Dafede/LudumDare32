@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\CharacterMovement.cs" />
      <Compile Include="Assets\Scripts\Coin01.cs" />
      <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
+     <Compile Include="Assets\Scripts\EnemyGeneration.cs" />
      <Compile Include="Assets\Scripts\Nike.cs" />
      <Compile Include="Assets\Scripts\NotificationCenter.cs" />
  <Reference Include="UnityEngine.UI">
