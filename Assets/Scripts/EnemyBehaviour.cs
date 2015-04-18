@@ -10,16 +10,29 @@ public class EnemyBehaviour : MonoBehaviour {
 	Vector3 direction1;
 	Vector3 direction2;
 	float constantY;
+	private bool isWalkingRight = false;
+	Vector3 facing1,facing2;
 
 	// Use this for initialization
 	void Start () {
+		facing1.x = 0;
+		facing2.x = 0;
 		//Invoke ("Explosion", 1);
 		player = GameObject.FindGameObjectWithTag("Player");
 		//direction1 = transform.position;
 		//constantY = direction1.y;
 		//direction2 = player.transform.position;
 	}
-	
+	void FixedUpdate () {
+		facing2=transform.position;
+		if ((facing1.x  > facing2.x ) && isWalkingRight) {
+			Flip ();
+		}
+		if ((facing1.x  < facing2.x ) && !isWalkingRight) {
+			Flip ();
+		}
+		facing1=transform.position;
+	}
 	// Update is called once per frame
 	void Update () {
 
@@ -46,7 +59,14 @@ public class EnemyBehaviour : MonoBehaviour {
 	}
 
 	public void Hitted(){
-		Debug.Log ("destroy");
 		Destroy (gameObject);
+	}
+
+	void Flip() {
+		Debug.Log ("FLIP!");
+		isWalkingRight = !isWalkingRight;
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
 	}
 }
