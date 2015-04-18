@@ -21,6 +21,7 @@ public class Coin01 : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collider){
+		Debug.Log (collider.gameObject.tag);
 		if (collider.gameObject.tag == "Player") {
 			NotificationCenter.DefaultCenter ().PostNotification (this, "IncreaseScore", pointsToIncrement);
 			//AudioSource.PlayClipAtPoint (itemSoundClip, Camera.main.transform.position, itemSoundVoulume);
