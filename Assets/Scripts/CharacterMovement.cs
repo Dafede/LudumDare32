@@ -71,7 +71,6 @@ public class CharacterMovement : MonoBehaviour {
 
         if (col.gameObject.tag == "Enemy")
         {
-            Debug.Log("Hitted!");
             SufferDamage();
         }
     }

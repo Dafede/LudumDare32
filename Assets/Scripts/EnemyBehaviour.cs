@@ -12,6 +12,7 @@ public class EnemyBehaviour : MonoBehaviour {
 	float constantY;
 	private bool isWalkingRight = false;
 	Vector3 facing1,facing2;
+	Vector3 nuevaPos;
 
 	// Use this for initialization
 	void Start () {
@@ -44,7 +45,8 @@ public class EnemyBehaviour : MonoBehaviour {
 		transform.position = Vector3.MoveTowards(direction1, direction2, step);
 
 	}
-	void Explosion(){
+
+	public void Hitted(){
 		EnemyPosition = transform.position;
 		GameObject coinAux;
 		//Coin 1
@@ -58,15 +60,12 @@ public class EnemyBehaviour : MonoBehaviour {
 		Destroy (gameObject);
 	}
 
-	public void Hitted(){
-		Destroy (gameObject);
-	}
-
 	void Flip() {
-		Debug.Log ("FLIP!");
 		isWalkingRight = !isWalkingRight;
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+
 }
