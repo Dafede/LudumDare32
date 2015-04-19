@@ -65,21 +65,9 @@ public class CharacterMovement : MonoBehaviour {
         if (Input.GetAxis("Horizontal") > 0 && !isFacingRight)
             Flip();
 	}
-<<<<<<< HEAD
 
-	void OnTriggerEnter2D(Collider2D collider){
-		if ( collider.gameObject.tag == "Platform01") {
-			isJumping = false;
-			_animator.SetBool("IsJumping", false);
-		}
-
-	}
-    void OnCollisionEnter2D(Collision2D col) {
-	
-		if (col.gameObject.tag == "Ground" || col.gameObject.tag == "Platform01") {
-=======
     void OnTriggerEnter2D(Collider2D collider) {
-        Debug.Log(collider.gameObject.tag);
+        
         if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Platform01")
         {
             isJumping = false;
@@ -87,10 +75,9 @@ public class CharacterMovement : MonoBehaviour {
         }
     }
     void OnCollisionEnter2D(Collision2D col) {
-        Debug.Log(col.gameObject.tag);
+
         if (col.gameObject.tag == "Ground" || col.gameObject.tag == "Platform01") {
             
->>>>>>> 6a4bcd80e674be70229f631952e741d0518f18be
             isJumping = false;
             _animator.SetBool("IsJumping", false);
         }
@@ -103,6 +90,7 @@ public class CharacterMovement : MonoBehaviour {
     // Die logic
     void Die()
     {
+        GameObject.Find("Nike").GetComponent<Nike>().StartGameOver();
     }
     // Recive damage from any source
     void SufferDamage() {
