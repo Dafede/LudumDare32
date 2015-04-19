@@ -1,10 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CharacterMovement.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\FollowCharacter.cs">
     <Files>
-      <File FileName="Assets\Scripts\CharacterMovement.cs" Line="120" Column="78" />
+      <File FileName="Assets\Scripts\CharacterMovement.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Coin01.cs" Line="6" Column="35" />
-      <File FileName="Assets\Scripts\PlatformBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlatformBehaviour.cs" Line="34" Column="52" />
+      <File FileName="Assets\Scripts\FollowCharacter.cs" Line="46" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

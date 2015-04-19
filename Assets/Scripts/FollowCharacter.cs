@@ -30,12 +30,12 @@ public class FollowCharacter : MonoBehaviour {
 		*/
 		if ((character.transform.position.x < -19.66)||(character.transform.position.x > 19.66)) {
 			cameraPos = transform.position;
-			cameraPos.y = character.transform.position.y + 2.2f;
+			cameraPos.y = character.transform.position.y +0.85f;
 			transform.position = cameraPos;
 		} else {
 			cameraPos = transform.position;
 			cameraPos.x = character.transform.position.x;
-			cameraPos.y = character.transform.position.y + 2.2f;
+			cameraPos.y = character.transform.position.y + 0.85f;
 			transform.position = cameraPos;
 
 			/*cameraPos = character.transform.position;
@@ -43,5 +43,6 @@ public class FollowCharacter : MonoBehaviour {
 			cameraPos.y = cameraPos.y + 2.2f;
 			transform.position = cameraPos;*/
 		}
+
 	}
 }
