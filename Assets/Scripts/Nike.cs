@@ -28,7 +28,7 @@ public class Nike : MonoBehaviour {
 		score+=pointsToIncrement;
 		marcador.text = score.ToString ();
 
-        if (score % 50 == 0)
+        if (score % 10 == 0)
         {
             foreach (GameObject eg in enemyGenerators)
             {

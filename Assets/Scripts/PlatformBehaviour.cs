@@ -2,10 +2,10 @@
 using System.Collections;
 
 public class PlatformBehaviour : MonoBehaviour {
-
+	GameObject playercito;
 	// Use this for initialization
 	void Start () {
-	
+		playercito = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
@@ -28,7 +28,9 @@ public class PlatformBehaviour : MonoBehaviour {
 			//if(transform.position.y < collider.transform.position.y)GetComponent<BoxCollider2D>().isTrigger=false;
 		}
 	}
-
+	void FixedUpdate(){
+		Physics2D.IgnoreCollision(playercito.transform.GetComponent<Collider2D>(), GetComponent<Collider2D>(),playercito.GetComponent<Rigidbody2D>().velocity.y>0.001f);
+	}
 	void OnCollisionEnter2D(Collision2D collision){
 		if (collision.gameObject.tag == "Player") {
 			if(collision.gameObject.GetComponent<Rigidbody2D>().velocity.y>0){
