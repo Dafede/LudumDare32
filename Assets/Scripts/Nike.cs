@@ -50,6 +50,12 @@ public class Nike : MonoBehaviour {
             Destroy(enemies[i]);
         }
 
+        GameObject[] coin = GameObject.FindGameObjectsWithTag("Coin01");
+        for (int i = 0; i < coin.Length; i++)
+        {
+            Destroy(coin[i]);
+        }
+
     }
 
     public void StartGame()
