@@ -6,9 +6,12 @@ public class Coin01 : MonoBehaviour {
 	public int pointsToIncrement = 1;
 	Vector3 finalPosition;
 	bool finalPos=false;
+	public AudioClip coin;
+	private AudioSource source;
+
 	// Use this for initialization
 	void Start () {
-
+		source = GetComponent<AudioSource>();
 	}
 	// Update is called once per frame
 	void Update () {
@@ -41,6 +44,9 @@ public class Coin01 : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision){
 		if (collision.gameObject.tag == "Player") {
+			//GetComponent<AudioSource>().Play();
+			AudioSource.PlayClipAtPoint (coin, Camera.main.transform.position, 0.25f);
+
 			NotificationCenter.DefaultCenter ().PostNotification (this, "IncreaseScore", pointsToIncrement);
 			Destroy (gameObject);
 		}

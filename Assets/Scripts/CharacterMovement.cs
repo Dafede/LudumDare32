@@ -18,19 +18,18 @@ public class CharacterMovement : MonoBehaviour {
     private bool isHitting = false;
     private bool isHittingUp = false;
     private bool isHittingDown = false;
-
     private bool isFacingRight = true;
 
 	private Transform slasher;
     private Vector3 originalSlasherPosition;
     private Quaternion originalSlasherRotation;
     private Vector3 originalSlasherScale;
-
+	public AudioClip hurt;
+	public AudioClip jump;
     public int actualLives;
 
 	// Use this for initialization
 	void Start () {
-
         _animator = GetComponent<Animator>();
         _rigidBody2D = GetComponent<Rigidbody2D>();
         actualLives = TotalLives;
@@ -49,8 +48,10 @@ public class CharacterMovement : MonoBehaviour {
         {
             _animator.SetBool("IsJumping", true);
             isJumping = true;
-			if(GetComponent<Rigidbody2D>().velocity.y==0) 
+			if(GetComponent<Rigidbody2D>().velocity.y==0){
+				AudioSource.PlayClipAtPoint (jump, Camera.main.transform.position, 0.25f);
 				_rigidBody2D.AddForce(Vector2.up * JumpHeight);
+			}
         }
 
         // Hit
@@ -95,6 +96,7 @@ public class CharacterMovement : MonoBehaviour {
     // Recive damage from any source
     void SufferDamage() {
         actualLives--;
+		AudioSource.PlayClipAtPoint (hurt, Camera.main.transform.position, 0.25f);
         _redDamageIndicator.GetComponent<RedDamageBehaviour>().BeginAnimation();
 
         GameObject[] list = GameObject.FindGameObjectsWithTag("Life");
@@ -127,6 +129,7 @@ public class CharacterMovement : MonoBehaviour {
     }
 
     void MakeHit() {
+
         if ((Input.GetAxis("Fire1") == 1))
         {
             // Determinar hacia donde se hace el golpe
@@ -171,7 +174,8 @@ public class CharacterMovement : MonoBehaviour {
             ResetSlasherPosition();
             _animator.SetBool("IsHitting", false);
             slasher.GetComponent<Animator>().SetBool("MakeSlash", false);
-        }
+        }            
+        
     }
 
     void ResetSlasherPosition() {
