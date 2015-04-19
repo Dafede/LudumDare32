@@ -25,7 +25,8 @@ public class CharacterMovement : MonoBehaviour {
     private Vector3 originalSlasherPosition;
     private Quaternion originalSlasherRotation;
     private Vector3 originalSlasherScale;
-
+	public AudioClip hurt;
+	public AudioClip jump;
     public int actualLives;
 
 	// Use this for initialization
@@ -49,8 +50,10 @@ public class CharacterMovement : MonoBehaviour {
         {
             _animator.SetBool("IsJumping", true);
             isJumping = true;
-			if(GetComponent<Rigidbody2D>().velocity.y==0) 
+			if(GetComponent<Rigidbody2D>().velocity.y==0){
+				AudioSource.PlayClipAtPoint (jump, Camera.main.transform.position, 0.25f);
 				_rigidBody2D.AddForce(Vector2.up * JumpHeight);
+			}
         }
 
         // Hit
@@ -67,7 +70,7 @@ public class CharacterMovement : MonoBehaviour {
 	}
 
     void OnTriggerEnter2D(Collider2D collider) {
-        Debug.Log(collider.gameObject.tag);
+        
         if (collider.gameObject.tag == "Ground" || collider.gameObject.tag == "Platform01")
         {
             isJumping = false;
@@ -75,10 +78,9 @@ public class CharacterMovement : MonoBehaviour {
         }
     }
     void OnCollisionEnter2D(Collision2D col) {
-        Debug.Log(col.gameObject.tag);
+
         if (col.gameObject.tag == "Ground" || col.gameObject.tag == "Platform01") {
             
-
             isJumping = false;
             _animator.SetBool("IsJumping", false);
         }
@@ -91,10 +93,12 @@ public class CharacterMovement : MonoBehaviour {
     // Die logic
     void Die()
     {
+        GameObject.Find("Nike").GetComponent<Nike>().StartGameOver();
     }
     // Recive damage from any source
     void SufferDamage() {
         actualLives--;
+		AudioSource.PlayClipAtPoint (hurt, Camera.main.transform.position, 0.25f);
         _redDamageIndicator.GetComponent<RedDamageBehaviour>().BeginAnimation();
 
         GameObject[] list = GameObject.FindGameObjectsWithTag("Life");
