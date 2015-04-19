@@ -15,14 +15,22 @@ public class CharacterMovement : MonoBehaviour {
 
     private bool isJumping = false;
     private bool isHitting = false;
+    private bool isHittingUp = false;
+    private bool isHittingDown = false;
     private bool isWalkingRight = true;
     public int actualLives;
+	public GameObject Weapon;
+	public GameObject Player;
+	Vector3 weaponPosition;
+	Vector3 auxVec;
 
 	// Use this for initialization
 	void Start () {
+
         _animator = GetComponent<Animator>();
         _rigidBody2D = GetComponent<Rigidbody2D>();
         actualLives = TotalLives;
+
 	}
 
 	
@@ -47,9 +55,46 @@ public class CharacterMovement : MonoBehaviour {
         }
 
 
+
         // Hit
-        if (Input.GetAxis("Fire1") == 1)
-        {
+		if ((Input.GetAxis("Fire1") == 1))
+		{
+
+			//HITING TOP
+			if ((Input.GetAxis ("Vertical") > 0) && !isHittingUp)
+            {
+
+				Player = GameObject.FindGameObjectWithTag("Player");
+				Weapon = GameObject.FindGameObjectWithTag("Weapon");
+                Weapon.transform.RotateAround(transform.position, new Vector3(0, 0, 1), 90);
+                isHittingUp = true;
+
+			}
+
+            if ((Input.GetAxis("Vertical") == 0))
+            {
+				Player = GameObject.FindGameObjectWithTag("Player");
+				Weapon = GameObject.FindGameObjectWithTag("Weapon");
+                if (isHittingUp)
+                {
+                    Weapon.transform.RotateAround(transform.position, new Vector3(0, 0, 1), -90);
+                    isHittingUp = false;
+                }
+                if (isHittingDown) 
+                {
+                    Weapon.transform.RotateAround(transform.position, new Vector3(0, 0, 1), 90);
+                    isHittingDown = false;
+                }
+			}
+
+            if ((Input.GetAxis("Vertical") < 0) && !isHittingDown)
+            {
+                Player = GameObject.FindGameObjectWithTag("Player");
+                Weapon = GameObject.FindGameObjectWithTag("Weapon");
+                Weapon.transform.RotateAround(transform.position, new Vector3(0, 0, 1), -90);
+                isHittingDown = true;
+            }
+
 			isHitting = true;
 
             _slasherObject.GetComponent<Animator>().SetBool("MakeSlash", true);

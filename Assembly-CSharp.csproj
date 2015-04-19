@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Coin01.cs" />
      <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
      <Compile Include="Assets\Scripts\EnemyGeneration.cs" />
+     <Compile Include="Assets\Scripts\FollowCharacter.cs" />
      <Compile Include="Assets\Scripts\Nike.cs" />
      <Compile Include="Assets\Scripts\NotificationCenter.cs" />
      <Compile Include="Assets\Scripts\RedDamageBehaviour.cs" />
