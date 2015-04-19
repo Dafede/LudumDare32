@@ -51,7 +51,8 @@ public class CharacterMovement : MonoBehaviour {
         {
             _animator.SetBool("IsJumping", true);
             isJumping = true;
-            _rigidBody2D.AddForce(Vector2.up * JumpHeight);
+			if(GetComponent<Rigidbody2D>().velocity.y==0) 
+				_rigidBody2D.AddForce(Vector2.up * JumpHeight);
         }
 
 
@@ -107,10 +108,16 @@ public class CharacterMovement : MonoBehaviour {
         }
 	}
 
+	void OnTriggerEnter2D(Collider2D collider){
+		if ( collider.gameObject.tag == "Platform01") {
+			isJumping = false;
+			_animator.SetBool("IsJumping", false);
+		}
 
+	}
     void OnCollisionEnter2D(Collision2D col) {
 	
-        if (col.gameObject.tag == "Ground") {
+		if (col.gameObject.tag == "Ground" || col.gameObject.tag == "Platform01") {
             isJumping = false;
             _animator.SetBool("IsJumping", false);
         }
@@ -119,8 +126,6 @@ public class CharacterMovement : MonoBehaviour {
         {
             SufferDamage();
         }
-
-
     }
 
     // Die logic

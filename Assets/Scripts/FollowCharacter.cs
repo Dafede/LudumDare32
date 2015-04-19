@@ -15,13 +15,33 @@ public class FollowCharacter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		/*
+			if ((character.transform.position.x < -19.66)||(character.transform.position.x > 19.66)) {
+				cameraPos = character.transform.position;
+				cameraPos.z = zCam;
+				cameraPos.y = cameraPos.y + 2.2f;
+				transform.position = cameraPos;
+			} else { 
+				cameraPos = character.transform.position;
+				cameraPos.z = zCam;
+				cameraPos.y = cameraPos.y + 2.2f;
+				transform.position = cameraPos;
+			}
+		*/
 		if ((character.transform.position.x < -19.66)||(character.transform.position.x > 19.66)) {
+			cameraPos = transform.position;
+			cameraPos.y = character.transform.position.y + 2.2f;
+			transform.position = cameraPos;
+		} else {
+			cameraPos = transform.position;
+			cameraPos.x = character.transform.position.x;
+			cameraPos.y = character.transform.position.y + 2.2f;
+			transform.position = cameraPos;
 
-		} else { 
-			cameraPos = character.transform.position;
+			/*cameraPos = character.transform.position;
 			cameraPos.z = zCam;
 			cameraPos.y = cameraPos.y + 2.2f;
-			transform.position = cameraPos;
+			transform.position = cameraPos;*/
 		}
 	}
 }
