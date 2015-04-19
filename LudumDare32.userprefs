@@ -1,9 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Nike.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CharacterMovement.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlatformBehaviour.cs" Line="32" Column="161" />
-      <File FileName="Assets\Scripts\Nike.cs" Line="80" Column="1" />
+      <File FileName="Assets\Scripts\Nike.cs" Line="76" Column="10" />
+      <File FileName="Assets\Scripts\PlatformBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CharacterMovement.cs" Line="115" Column="58" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

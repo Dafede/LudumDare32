@@ -101,12 +101,15 @@ public class CharacterMovement : MonoBehaviour {
 
         GameObject[] list = GameObject.FindGameObjectsWithTag("Life");
         GameObject elected = list[0];
-        Debug.Log(list.Length);
+
         foreach (GameObject l in list) {
+			Debug.Log (l.GetComponent<SpriteRenderer>().color.ToString());
             if (l.GetComponent<SpriteRenderer>().color.a != 0.0f && elected.transform.position.x < l.transform.position.x) {
+
                 elected = l;
             }
         }
+
         Color n = elected.GetComponent<SpriteRenderer>().color;
         n.a = 0.0f;
         elected.GetComponent<SpriteRenderer>().color = n;
