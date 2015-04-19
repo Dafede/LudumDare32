@@ -17,12 +17,18 @@ public class CharacterMovement : MonoBehaviour {
     private bool isHitting = false;
     private bool isWalkingRight = true;
     public int actualLives;
+	public GameObject Weapon;
+	public GameObject Player;
+	Vector3 weaponPosition;
+	Vector3 auxVec;
 
 	// Use this for initialization
 	void Start () {
+
         _animator = GetComponent<Animator>();
         _rigidBody2D = GetComponent<Rigidbody2D>();
         actualLives = TotalLives;
+
 	}
 
 	
@@ -47,9 +53,33 @@ public class CharacterMovement : MonoBehaviour {
         }
 
 
+
         // Hit
-        if (Input.GetAxis("Fire1") == 1)
-        {
+		if ((Input.GetAxis("Fire1") == 1))
+		{
+
+			//HITING TOP
+			if ((Input.GetAxis ("Vertical") > 0)){
+
+				Player = GameObject.FindGameObjectWithTag("Player");
+				Weapon = GameObject.FindGameObjectWithTag("Weapon");
+				auxVec = Weapon.transform.localEulerAngles;
+				auxVec.z=45;
+				Weapon.transform.localEulerAngles=auxVec;
+				//auxVec = Weapon.transform.position;
+				//auxVec.y=-2f;
+				//Weapon.transform.position=auxVec;
+			}else{
+				Player = GameObject.FindGameObjectWithTag("Player");
+				Weapon = GameObject.FindGameObjectWithTag("Weapon");
+				auxVec = Weapon.transform.localEulerAngles;
+				auxVec.z=0;
+				Weapon.transform.localEulerAngles=auxVec;
+				//auxVec = Weapon.transform.position;
+				//auxVec.y=-3f;
+				//Weapon.transform.position=auxVec;
+			}
+
 			isHitting = true;
 
             _slasherObject.GetComponent<Animator>().SetBool("MakeSlash", true);
@@ -84,6 +114,17 @@ public class CharacterMovement : MonoBehaviour {
     void SufferDamage() {
         actualLives--;
         _redDamageIndicator.GetComponent<RedDamageBehaviour>().BeginAnimation();
+
+        GameObject[] list = GameObject.FindGameObjectsWithTag("Life");
+        GameObject elected = list[0];
+        foreach (GameObject l in list) {
+            if (elected.transform.position.x < l.transform.position.x) {
+                elected = l;
+            }
+        }
+        elected.SetActive(false);
+
+
         if (actualLives == 0) {
             Die();
         }
