@@ -1,12 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CharacterMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlatformBehaviour.cs">
     <Files>
-      <File FileName="Assets\Scripts\CharacterMovement.cs" Line="24" Column="1" />
-      <File FileName="Assets\Scripts\Coin01.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\FollowCharacter.cs" Line="18" Column="84" />
+      <File FileName="Assets\Scripts\CharacterMovement.cs" Line="94" Column="1" />
+      <File FileName="Assets\Scripts\Coin01.cs" Line="26" Column="2" />
       <File FileName="Assets\Scripts\EnemyBehaviour.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\WeaponBehaviour.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\FollowCharacter.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlatformBehaviour.cs" Line="21" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

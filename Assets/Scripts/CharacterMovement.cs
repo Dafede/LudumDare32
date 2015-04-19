@@ -34,7 +34,7 @@ public class CharacterMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-
+		//Physics.IgnoreLayerCollision(8, 9, (Player.GetComponent<Rigidbody>().velocity.y > 0.0f));
         // Horizontal movement
         float horizontalTranslation = Input.GetAxis("Horizontal") * Speed;    
         transform.Translate(horizontalTranslation, 0, 0);
@@ -92,6 +92,7 @@ public class CharacterMovement : MonoBehaviour {
         }
 	}
 
+
     void OnCollisionEnter2D(Collision2D col) {
 	
         if (col.gameObject.tag == "Ground") {
@@ -103,6 +104,8 @@ public class CharacterMovement : MonoBehaviour {
         {
             SufferDamage();
         }
+
+
     }
 
     // Die logic

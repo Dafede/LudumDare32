@@ -15,6 +15,7 @@ public class Coin01 : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collider){
+		Debug.Log (collider.gameObject.tag);
 		if (collider.gameObject.tag == "Player") {
 			NotificationCenter.DefaultCenter ().PostNotification (this, "IncreaseScore", pointsToIncrement);
 			//AudioSource.PlayClipAtPoint (itemSoundClip, Camera.main.transform.position, itemSoundVoulume);
@@ -23,6 +24,7 @@ public class Coin01 : MonoBehaviour {
 	}
 
 	void OnCollisionStay2D(Collision2D collision){
+
 		if ((collision.gameObject.tag == "Ground")&&isEnemy) {
 			Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
 			Destroy (GetComponent<Rigidbody2D>());
@@ -32,6 +34,7 @@ public class Coin01 : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D collision){
+		Debug.Log (collision.gameObject.tag);
 		if (collision.gameObject.tag == "Player") {
 			NotificationCenter.DefaultCenter ().PostNotification (this, "IncreaseScore", pointsToIncrement);
 			Destroy (gameObject);

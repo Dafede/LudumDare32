@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\FollowCharacter.cs" />
      <Compile Include="Assets\Scripts\Nike.cs" />
      <Compile Include="Assets\Scripts\NotificationCenter.cs" />
+     <Compile Include="Assets\Scripts\PlatformBehaviour.cs" />
      <Compile Include="Assets\Scripts\RedDamageBehaviour.cs" />
      <Compile Include="Assets\Scripts\WeaponBehaviour.cs" />
  <Reference Include="UnityEngine.UI">
