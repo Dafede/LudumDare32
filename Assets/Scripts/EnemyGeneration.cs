@@ -17,7 +17,7 @@ public class EnemyGeneration : MonoBehaviour {
         if (SpawnActive)
         {
             Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-            Invoke("GenerateEnemy", timeSpan);
+            Invoke("GenerateEnemy", timeSpan + Random.RandomRange(-0.1f,0.1f));
         }
     }
 
