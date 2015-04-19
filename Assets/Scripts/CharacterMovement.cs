@@ -18,7 +18,6 @@ public class CharacterMovement : MonoBehaviour {
     private bool isHitting = false;
     private bool isHittingUp = false;
     private bool isHittingDown = false;
-
     private bool isFacingRight = true;
 
 	private Transform slasher;
@@ -31,7 +30,6 @@ public class CharacterMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
         _animator = GetComponent<Animator>();
         _rigidBody2D = GetComponent<Rigidbody2D>();
         actualLives = TotalLives;
@@ -103,12 +101,15 @@ public class CharacterMovement : MonoBehaviour {
 
         GameObject[] list = GameObject.FindGameObjectsWithTag("Life");
         GameObject elected = list[0];
+        Debug.Log(list.Length);
         foreach (GameObject l in list) {
-            if (elected.transform.position.x < l.transform.position.x) {
+            if (l.GetComponent<SpriteRenderer>().color.a != 0.0f && elected.transform.position.x < l.transform.position.x) {
                 elected = l;
             }
         }
-        elected.SetActive(false);
+        Color n = elected.GetComponent<SpriteRenderer>().color;
+        n.a = 0.0f;
+        elected.GetComponent<SpriteRenderer>().color = n;
 
 
         if (actualLives == 0) {
@@ -131,6 +132,7 @@ public class CharacterMovement : MonoBehaviour {
     }
 
     void MakeHit() {
+
         if ((Input.GetAxis("Fire1") == 1))
         {
             // Determinar hacia donde se hace el golpe
@@ -175,7 +177,8 @@ public class CharacterMovement : MonoBehaviour {
             ResetSlasherPosition();
             _animator.SetBool("IsHitting", false);
             slasher.GetComponent<Animator>().SetBool("MakeSlash", false);
-        }
+        }            
+        
     }
 
     void ResetSlasherPosition() {

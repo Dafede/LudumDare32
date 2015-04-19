@@ -26,4 +26,10 @@ public class EnemyGeneration : MonoBehaviour {
             timeSpan -= n;
     }
 
+    public void SetSpawnActive(bool value) {
+        SpawnActive = value;
+        if(SpawnActive)
+            Invoke("GenerateEnemy", timeSpan + Random.RandomRange(-0.1f, 0.1f));
+    }
+
 }
