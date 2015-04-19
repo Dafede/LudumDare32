@@ -15,6 +15,8 @@ public class CharacterMovement : MonoBehaviour {
 
     private bool isJumping = false;
     private bool isHitting = false;
+    private bool isHittingUp = false;
+    private bool isHittingDown = false;
     private bool isWalkingRight = true;
     public int actualLives;
 	public GameObject Weapon;
@@ -59,26 +61,39 @@ public class CharacterMovement : MonoBehaviour {
 		{
 
 			//HITING TOP
-			if ((Input.GetAxis ("Vertical") > 0)){
+			if ((Input.GetAxis ("Vertical") > 0) && !isHittingUp)
+            {
 
 				Player = GameObject.FindGameObjectWithTag("Player");
 				Weapon = GameObject.FindGameObjectWithTag("Weapon");
-				auxVec = Weapon.transform.localEulerAngles;
-				auxVec.z=45;
-				Weapon.transform.localEulerAngles=auxVec;
-				//auxVec = Weapon.transform.position;
-				//auxVec.y=-2f;
-				//Weapon.transform.position=auxVec;
-			}else{
+                Weapon.transform.RotateAround(transform.position, new Vector3(0, 0, 1), 90);
+                isHittingUp = true;
+
+			}
+
+            if ((Input.GetAxis("Vertical") == 0))
+            {
 				Player = GameObject.FindGameObjectWithTag("Player");
 				Weapon = GameObject.FindGameObjectWithTag("Weapon");
-				auxVec = Weapon.transform.localEulerAngles;
-				auxVec.z=0;
-				Weapon.transform.localEulerAngles=auxVec;
-				//auxVec = Weapon.transform.position;
-				//auxVec.y=-3f;
-				//Weapon.transform.position=auxVec;
+                if (isHittingUp)
+                {
+                    Weapon.transform.RotateAround(transform.position, new Vector3(0, 0, 1), -90);
+                    isHittingUp = false;
+                }
+                if (isHittingDown) 
+                {
+                    Weapon.transform.RotateAround(transform.position, new Vector3(0, 0, 1), 90);
+                    isHittingDown = false;
+                }
 			}
+
+            if ((Input.GetAxis("Vertical") < 0) && !isHittingDown)
+            {
+                Player = GameObject.FindGameObjectWithTag("Player");
+                Weapon = GameObject.FindGameObjectWithTag("Weapon");
+                Weapon.transform.RotateAround(transform.position, new Vector3(0, 0, 1), -90);
+                isHittingDown = true;
+            }
 
 			isHitting = true;
 
