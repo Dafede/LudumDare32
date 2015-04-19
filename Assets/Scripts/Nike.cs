@@ -28,13 +28,13 @@ public class Nike : MonoBehaviour {
 		score+=pointsToIncrement;
 		marcador.text = score.ToString ();
 
-        /*if (score % 10 == 0)
+        if (score % 50 == 0)
         {
             foreach (GameObject eg in enemyGenerators)
             {
                 eg.GetComponent<EnemyGeneration>().DecreaseTimeSpan(0.1f);
             }
-        }*/
+        }
 	}
 
     public void StartGameOver() {
@@ -42,7 +42,7 @@ public class Nike : MonoBehaviour {
         Player.SetActive(false);
         foreach (GameObject eg in enemyGenerators)
         {
-            eg.GetComponent<EnemyGeneration>().SpawnActive = false;
+            eg.GetComponent<EnemyGeneration>().SetSpawnActive(false);
         }
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -54,13 +54,25 @@ public class Nike : MonoBehaviour {
 
     public void StartGame()
     {
-        score = 0;
+        Player.GetComponent<CharacterMovement>().actualLives = Player.GetComponent<CharacterMovement>().TotalLives;
+
+        score = -1;
+        NotificationCenter.DefaultCenter().PostNotification(this, "IncreaseScore", 1);
         EndHUD.SetActive(false);
         Player.SetActive(true);
         foreach (GameObject eg in enemyGenerators)
         {
-            eg.GetComponent<EnemyGeneration>().SpawnActive = true;
+            eg.GetComponent<EnemyGeneration>().SetSpawnActive(true);
         }
+
+        GameObject[] list = GameObject.FindGameObjectsWithTag("Life");
+        foreach (GameObject l in list)
+        {
+            Color n = l.GetComponent<SpriteRenderer>().color;
+            n.a = 1.0f;
+            l.GetComponent<SpriteRenderer>().color = n;
+        }
+        
     }
 
 
